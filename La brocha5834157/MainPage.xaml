@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:La_brocha5834157.model"
+             x:Class="La_brocha5834157.MainPage">
+
+    <ContentPage.BindingContext>
+        <ViewModel:Presupuesto/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="25"
+            VerticalOptions="Center">
+
+  
+            <Image
+                 Source="dotnet_bot.png"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+          
+            <StackLayout Spacing="10" HorizontalOptions="Center">
+                <Label
+                    Text="Ingrese la superficie (m²)"
+                    FontSize="18"
+                    FontFamily="Times New Roman"
+                    TextColor="DarkSlateGray"
+                    VerticalOptions="Center"/>
+
+                <Entry
+                    Text="{Binding M2}"
+                    Placeholder="Área en m²"
+                    PlaceholderColor="LightGray"
+                    Keyboard="Numeric"
+                    WidthRequest="250"
+                    HeightRequest="40"
+                    BackgroundColor="LightGray"
+                    TextColor="Black"/>
+            </StackLayout>
+
+            <!-- Entrada de Precio -->
+            <StackLayout Spacing="10" HorizontalOptions="Center">
+                <Label
+                    Text="Ingrese el precio por m²"
+                    FontSize="18"
+                    FontFamily="Times New Roman"
+                    TextColor="DarkSlateGray"
+                    VerticalOptions="Center"/>
+
+                <Entry
+                    Text="{Binding Precio}"
+                    Placeholder="Precio por m²"
+                    PlaceholderColor="LightGray"
+                    Keyboard="Numeric"
+                    WidthRequest="250"
+                    HeightRequest="40"
+                    BackgroundColor="LightGray"
+                    TextColor="Black"/>
+            </StackLayout>
+
+            <!-- Resultado -->
+            <Label
+                Text="El costo total es:"
+                FontSize="18"
+                FontFamily="Times New Roman"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Center"/>
+
+            <Entry
+                Text="{Binding Resultado}"
+                WidthRequest="250"
+                HeightRequest="40"
+                BackgroundColor="WhiteSmoke"
+                TextColor="Black"
+                IsReadOnly="True"
+                HorizontalOptions="Center"/>
+
+            <!-- Botón -->
+            <Button
+                Text="Calcular Costo"
+                Command="{Binding CostoCommand}"
+                BackgroundColor="CornflowerBlue"
+                TextColor="White"
+                FontAttributes="Bold"
+                WidthRequest="250"
+                HeightRequest="50"
+                HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
